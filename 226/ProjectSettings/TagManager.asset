@@ -10,6 +10,9 @@ TagManager:
   - Item_Medkit
   - Checkpoint_One
   - GameMaster
+  - Planet_Earth
+  - Planet_0
+  - Sun
   layers:
   - Default
   - TransparentFX

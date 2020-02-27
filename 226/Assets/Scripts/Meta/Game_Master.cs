@@ -10,6 +10,7 @@ public class Game_Master : MonoBehaviour
     public Vector2 respawnLocation;
     public int respawnHealthPoints;
     public int respawnScore;
+    public bool phaseTwo;
     // Any additional values that need to stay constant through scene reloads can be stored here
 
     void Awake(){

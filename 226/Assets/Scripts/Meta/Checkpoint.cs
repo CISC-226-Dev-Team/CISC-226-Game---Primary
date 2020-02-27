@@ -11,6 +11,7 @@ public class Checkpoint : MonoBehaviour
             gm.respawnLocation = transform.position;
             gm.respawnHealthPoints = Player_Health_and_Damage_Controller.currentHealthPoints;
             gm.respawnScore = Player_Item_Interactions_Controller.score;
+            gm.phaseTwo = true;
         }
     }
 }

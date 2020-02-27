@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Spaceship_Movement_Controller : MonoBehaviour
 {
@@ -33,9 +34,9 @@ public class Spaceship_Movement_Controller : MonoBehaviour
     }
 
     void Update(){
-        // ESC quits the game 
+        // ESC returns to main menu
         if (Input.GetKey(KeyCode.Escape)){
-            Application.Quit();
+            SceneManager.LoadScene("Main_Menu");
         }
     }
 

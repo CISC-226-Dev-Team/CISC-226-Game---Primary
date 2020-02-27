@@ -18,16 +18,48 @@ public class Player_Movement_Controller : MonoBehaviour
 
     public static bool isGrounded = true;
 
+    // Sound variables
+    AudioSource sfx;
+    // The run sound just isnt sounding great so its all commented out for now
+    //public AudioClip runSound;
+    public AudioClip jumpSound;
+
     /* Checks for movement button presses and applies force accordingly */
     void doHorizontalMovement(){
         /* * * RUNNING * * */
         // Apply appropriate directional runForce whenever the arrow keys are pressed.
         if (Input.GetKey(KeyCode.LeftArrow)){
             rb.AddForce(transform.right * runForce * -1);
+            // Play running sound if grounded
+            /*
+            if (isGrounded){
+                if (!sfx.loop){
+                    sfx.clip = runSound;
+                    sfx.Play();
+                }
+                sfx.loop = true;
+            }
+            */
         }
         else if (Input.GetKey(KeyCode.RightArrow)){
             rb.AddForce(transform.right * runForce);
+            // Play running sound if grounded
+            /*
+            if (isGrounded){
+                if (!sfx.loop){
+                    sfx.clip = runSound;
+                    sfx.Play();
+                }
+                sfx.loop = true;
+            }
+            */
         }
+        /*
+        else{
+            // Disable looping run sound if not running
+            sfx.loop = false;
+        }
+        */
     }
 
     /* Checks for ground by changing isGrounded to true whenever the terrain layer is collided with */
@@ -45,6 +77,10 @@ public class Player_Movement_Controller : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x,0f); // Reset vertical velocity before jump
             rb.AddForce(transform.up * jumpForce,ForceMode2D.Impulse);
             isGrounded = false;
+            // Play sound effect
+            sfx.clip = jumpSound;
+            sfx.loop = false;
+            sfx.Play();
         }
         // When the player lets go of up, they lose upwards velocity faster (Allows for short hops)
         else if (!Input.GetKey(KeyCode.UpArrow) && !isGrounded && rb.velocity.y > 0){
@@ -83,6 +119,7 @@ public class Player_Movement_Controller : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sfx = GetComponent<AudioSource>();
     }
 
     // Reset position to last checkpoint position

@@ -15,8 +15,15 @@ public class Player_Health_and_Damage_Controller : MonoBehaviour
     float timeAtLastDamage = 0f;
     public static bool tookDamageRecently = false;
 
+    // Sound effect variables
+    AudioSource sfx;
+    public AudioClip ouchSound;
+    public AudioClip deathSound;
+
+    // Initialize values 
     void Start(){
         isAlive = true;
+        sfx = GetComponent<AudioSource>();
     }
 
     // Reset health points to last checkpoint
@@ -28,9 +35,10 @@ public class Player_Health_and_Damage_Controller : MonoBehaviour
     /* Function to handle player death, should occur when health points hit 0
         Play relevant animations, screen freezes, whatever else is needed
         Resets health points and returns the player to their respawn location */
-    void death(){
+    public static void death(){
         // insert death animation trigger here
-        currentHealthPoints = 0;
+
+        // become dead
         isAlive = false;
 
         // Pause game until player presses the restart button
@@ -53,7 +61,19 @@ public class Player_Health_and_Damage_Controller : MonoBehaviour
             // Subtract dmg from current health, call death() is the player dies
             currentHealthPoints -= dmg;
             if (currentHealthPoints <= 0){
+                currentHealthPoints = 0;
+                // Play death sound effect
+                sfx.clip = deathSound;
+                sfx.loop = false;
+                sfx.Play();
+                // die
                 death();
+            }
+            else{
+                // Play the damage sound effect if the player survives
+                sfx.clip = ouchSound;
+                sfx.loop = false;
+                sfx.Play();
             }
         }
 
@@ -62,6 +82,13 @@ public class Player_Health_and_Damage_Controller : MonoBehaviour
     /* Whenever the player is in contact with an object with the hazards tag, they take damage */
     void OnCollisionStay2D(Collision2D collision){
         if (collision.gameObject.tag == "Hazards"){
+            takeDamage(10);
+        }
+    }
+
+    /* Whenever the player is within a hazardous trigger space, they take damage */
+    void OnTriggerStay2D(Collider2D collision){
+        if (collision.CompareTag("Hazards")){
             takeDamage(10);
         }
     }

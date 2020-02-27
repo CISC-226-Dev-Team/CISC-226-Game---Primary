@@ -5,19 +5,41 @@ using UnityEngine;
 public class Player_Item_Interactions_Controller : MonoBehaviour
 {
 
+    Game_Master gm;
+
     // Scoring variables
     public static int score;
     public static int numCoins;
 
+    // Shooting variables
+    public GameObject bullet;
+    public float shootCooldown;
+    float nextFireTime;
+
+    // Phase tracker and timer variables
+    bool phaseTwo;
+    public float timerInterval;
+    float nextInterval;
+
+    // Sound variables
+    AudioSource sfx;
+    public AudioClip deathSound;
+    public AudioClip coinSound;
+    public AudioClip medkitSound;
+    public AudioClip shootSound;
+
+    // Initialize values
     void Start(){
+        sfx = GetComponent<AudioSource>();
         // Count number of coins on start
         numCoins = GameObject.Find("Coins").transform.childCount;
     }
 
     // Reset score to last checkpoint
     void Awake(){
-        Game_Master gm = GameObject.Find("GameMaster").GetComponent<Game_Master>();
+        gm = GameObject.Find("GameMaster").GetComponent<Game_Master>();
         score = gm.respawnScore;
+        phaseTwo = gm.phaseTwo;
     }
 
     // Whenever an object with a trigger hitbox is touched, check what it is and resolve accordingly by checking tags
@@ -26,6 +48,10 @@ public class Player_Item_Interactions_Controller : MonoBehaviour
         // Coins increase score by 1, then disappear
         if (collision.CompareTag("Item_Coin")){
             score += 1;
+            // Play coin pickup sound effect
+            sfx.clip = coinSound;
+            sfx.loop = false;
+            sfx.Play();
             Destroy(collision.gameObject);
         }
 
@@ -33,9 +59,76 @@ public class Player_Item_Interactions_Controller : MonoBehaviour
         else if (collision.CompareTag("Item_Medkit")){
             if (Player_Health_and_Damage_Controller.currentHealthPoints < Player_Health_and_Damage_Controller.maxHealthPoints){
                 Player_Health_and_Damage_Controller.currentHealthPoints += 5;
+                // Play medkit pickup sound effect
+                sfx.clip = medkitSound;
+                sfx.loop = false;
+                sfx.Play();
                 Destroy(collision.gameObject);
             }
         }
+
+    }
+
+    // Allow the player to shoot bullets at the cost of coins
+    void Update(){
+
+        // Whenever shoot button is pressed, check that:
+        // The player has coins left
+        // The player has not fired recently
+        if ( (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.X)) && Time.time > nextFireTime){
+
+            // Reset fire time based on cooldown
+            nextFireTime = Time.time + shootCooldown;
+
+            // Left shoot button fires to the left (-1)
+            if (Input.GetKey(KeyCode.Z)){
+                var projectile = (GameObject)Instantiate(bullet,transform.position+new Vector3(-1.5f,0f,0f),transform.rotation);
+                projectile.GetComponent<Projectile_Move_Forward>().setDirection(-1);
+            }
+            // Right shoot button fires to the right (+1)
+            else if (Input.GetKey(KeyCode.X)){
+                var projectile = (GameObject)Instantiate(bullet,transform.position+new Vector3(1.5f,0f,0f),transform.rotation);
+                projectile.GetComponent<Projectile_Move_Forward>().setDirection(1);
+                
+            }
+            
+            // Play shoot sound
+            sfx.clip = shootSound;
+            sfx.loop = false;
+            sfx.Play();
+
+            // *Remove 1 score* Shooting no longer costs coins so this isnt needed
+            // Checking if score > 0 has also been remove from the containing if statement
+            //score -= 1;
+            
+        }
+
+        // If the player is in phase two, the timer (based on coins collected) begin ticking down
+        if (phaseTwo){
+           // Every frame, check if the next timer interval has been reached
+           if (Time.time >= nextInterval){
+               // If it has, remove 1 score and set the next interval
+               score -= 1;
+               nextInterval = Time.time + timerInterval; 
+           }
+
+           // If the player has 0 score, the timer is out and they die
+           if (score <= 0){
+               // Play death sound effect ONLY ONCE
+               if (Time.timeScale != 0){
+                   sfx.clip = deathSound;
+                   sfx.loop = false;
+                   sfx.Play();
+               }
+               Player_Health_and_Damage_Controller.death();
+           }
+
+        }
+        else{
+            // Check for phase updates
+            phaseTwo = gm.phaseTwo;
+        }
+        
 
     }
 

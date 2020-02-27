@@ -33,7 +33,7 @@ public class Player_Animation_Controller : MonoBehaviour
 
     /* Check player movement values and update the animation state accordingly */
     void movementAnimations(){
-        // Get x and y velocities
+        // Get the player's facing direction
         xVel = rb.velocity.x;
         yVel = rb.velocity.y;
 
