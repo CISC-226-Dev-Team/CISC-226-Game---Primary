@@ -97007,6 +97007,7 @@ MonoBehaviour:
   respawnHealthPoints: 15
   respawnScore: 0
   phaseTwo: 0
+  checkpointed: 0
 --- !u!1 &2171879512896857324
 GameObject:
   m_ObjectHideFlags: 0
