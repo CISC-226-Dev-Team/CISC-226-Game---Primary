@@ -7,11 +7,11 @@ public class Player_Animation_Controller : MonoBehaviour
 {
 
     // Player related values
-    public Rigidbody2D rb;
+    Rigidbody2D rb;
     float xVel;
     float yVel;
 
-    public SpriteRenderer spr;
+    SpriteRenderer spr;
     public Color normalColor;
     public Color damageColor;
 

@@ -8,10 +8,14 @@ public class Checkpoint : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision){
         if (collision.CompareTag("Player")){
             Game_Master gm = GameObject.Find("GameMaster").GetComponent<Game_Master>();
-            gm.respawnLocation = transform.position;
-            gm.respawnHealthPoints = Player_Health_and_Damage_Controller.currentHealthPoints;
-            gm.respawnScore = Player_Item_Interactions_Controller.score;
-            gm.phaseTwo = true;
+            if (!gm.checkpointed){
+               gm.respawnLocation = transform.position;
+               gm.respawnHealthPoints = Player_Health_and_Damage_Controller.currentHealthPoints;
+               gm.respawnScore = Player_Item_Interactions_Controller.score;
+               gm.phaseTwo = true; 
+               gm.checkpointed = true;
+            }
+            
         }
     }
 }

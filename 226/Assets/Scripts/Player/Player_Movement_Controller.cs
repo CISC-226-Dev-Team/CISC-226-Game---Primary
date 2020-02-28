@@ -135,6 +135,7 @@ public class Player_Movement_Controller : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape)){
             // Destroy the game master before loading the space scene
             Destroy(GameObject.Find("GameMaster"));
+            Time.timeScale = 1f;
             SceneManager.LoadScene("Space");
         }
 

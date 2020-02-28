@@ -5,7 +5,7 @@ using UnityEngine;
 public class Object_Spinning : MonoBehaviour
 {
 
-    public int rotationSpeed;
+    public float rotationSpeed;
 
     // Rotate the object every frame
     void Update()
