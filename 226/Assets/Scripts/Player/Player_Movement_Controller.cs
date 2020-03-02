@@ -63,9 +63,11 @@ public class Player_Movement_Controller : MonoBehaviour
     }
 
     /* Checks for ground by changing isGrounded to true whenever the terrain layer is collided with */
-    void OnCollisionEnter2D(Collision2D collision){
+    void OnCollisionStay2D(Collision2D collision){
         if (collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "Hazards"){
-            isGrounded = true;
+            if (rb.velocity.y <= 0f){
+                isGrounded = true;
+            }
         }
     }
 

@@ -1604,7 +1604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41369e3850ee64d2b95724bd8e100ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScene: Space
+  startScene: Game_Intro
 --- !u!1 &1203385832
 GameObject:
   m_ObjectHideFlags: 0
