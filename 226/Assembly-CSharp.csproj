@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\Meta\Checkpoint.cs" />
      <Compile Include="Assets\Scripts\Meta\Game_Master.cs" />
      <Compile Include="Assets\Scripts\Meta\Main_Menu.cs" />
+     <Compile Include="Assets\Scripts\Meta\Scene_Transition.cs" />
      <Compile Include="Assets\Scripts\Meta\Trigger_Change_Scene.cs" />
      <Compile Include="Assets\Scripts\Objects\Object_Fall_Until_Collision.cs" />
      <Compile Include="Assets\Scripts\Objects\Object_Repeat_Fall.cs" />

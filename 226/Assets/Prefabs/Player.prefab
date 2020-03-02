@@ -116,7 +116,7 @@ EdgeCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895477538521042876}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1419379897352428107, guid: c267c5c6b344c4eec9e79fe5902952cc, type: 3}
   shootCooldown: 0.5
-  timerInterval: 2
+  timerInterval: 1
   deathSound: {fileID: 8300000, guid: 61f97b39420bf4e4a88b37cee9fb3339, type: 3}
   coinSound: {fileID: 8300000, guid: 6a8c60075137cfd4399c724d469adb9f, type: 3}
   medkitSound: {fileID: 8300000, guid: bb0e9ab5482558745988fb0bbdbca668, type: 3}
@@ -332,5 +332,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.28, y: 0.57}
+  m_Size: {x: 0.28, y: 0.59}
   m_EdgeRadius: 0

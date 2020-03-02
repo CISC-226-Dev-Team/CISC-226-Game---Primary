@@ -6,7 +6,7 @@ public class Player_Health_and_Damage_Controller : MonoBehaviour
 {
 
     // Initialize all health and death related variables
-    public static int maxHealthPoints = 30;
+    public static int maxHealthPoints;
     public static int currentHealthPoints;
     public float invulnerabilityPeriod;
     public static bool isAlive;
@@ -24,6 +24,8 @@ public class Player_Health_and_Damage_Controller : MonoBehaviour
     void Start(){
         isAlive = true;
         sfx = GetComponent<AudioSource>();
+        // Max health is based on how many medkits there are in the level
+        maxHealthPoints = GameObject.Find("Medkits").transform.childCount*5 + 15;
     }
 
     // Reset health points to last checkpoint

@@ -14,7 +14,10 @@ public class Trigger_Change_Scene : MonoBehaviour
         if (collision.CompareTag("Player")){
             // Destroy the GameMaster before leaving!
             Destroy(GameObject.Find("GameMaster"));
-            SceneManager.LoadScene(sceneName);
+            // Find the SceneManager and change its target scene before calling the transition
+            Scene_Transition SC = GameObject.Find("SceneController").GetComponent<Scene_Transition>();
+            SC.escScene = sceneName;
+            SC.transition();
         }
     }
 }

@@ -63,7 +63,7 @@ public class Player_Movement_Controller : MonoBehaviour
     }
 
     /* Checks for ground by changing isGrounded to true whenever the terrain layer is collided with */
-    void OnCollisionStay2D(Collision2D collision){
+    void OnCollisionEnter2D(Collision2D collision){
         if (collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "Hazards"){
             if (rb.velocity.y <= 0f){
                 isGrounded = true;
@@ -135,10 +135,11 @@ public class Player_Movement_Controller : MonoBehaviour
     {
         // ESC key exits the game into level select
         if (Input.GetKey(KeyCode.Escape)){
-            // Destroy the game master before loading the space scene
+            // Destroy the game master and reset the timeScale
             Destroy(GameObject.Find("GameMaster"));
             Time.timeScale = 1f;
-            SceneManager.LoadScene("Space");
+            Scene_Transition SC = GameObject.Find("SceneController").GetComponent<Scene_Transition>();
+            SC.transition();
         }
 
         // Press R to reset the level

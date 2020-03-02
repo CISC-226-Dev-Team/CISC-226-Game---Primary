@@ -47,23 +47,23 @@ public class Player_Item_Interactions_Controller : MonoBehaviour
 
         // Coins increase score by 1, then disappear
         if (collision.CompareTag("Item_Coin")){
+            Destroy(collision.gameObject);
             score += 1;
             // Play coin pickup sound effect
             sfx.clip = coinSound;
             sfx.loop = false;
             sfx.Play();
-            Destroy(collision.gameObject);
         }
 
         // Medkits restore 5 health, up to the maximum, then disappear
         else if (collision.CompareTag("Item_Medkit")){
             if (Player_Health_and_Damage_Controller.currentHealthPoints < Player_Health_and_Damage_Controller.maxHealthPoints){
+                Destroy(collision.gameObject);
                 Player_Health_and_Damage_Controller.currentHealthPoints += 5;
                 // Play medkit pickup sound effect
                 sfx.clip = medkitSound;
                 sfx.loop = false;
                 sfx.Play();
-                Destroy(collision.gameObject);
             }
         }
 
