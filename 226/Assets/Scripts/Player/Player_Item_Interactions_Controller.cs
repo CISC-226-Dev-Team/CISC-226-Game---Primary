@@ -114,13 +114,13 @@ public class Player_Item_Interactions_Controller : MonoBehaviour
 
            // If the player has 0 score, the timer is out and they die
            if (score <= 0){
-               // Play death sound effect ONLY ONCE
-               if (Time.timeScale != 0){
+               // Make sure to only die once
+               if (Player_Health_and_Damage_Controller.isAlive){
                    sfx.clip = deathSound;
                    sfx.loop = false;
                    sfx.Play();
+                   Player_Health_and_Damage_Controller.death();
                }
-               Player_Health_and_Damage_Controller.death();
            }
 
         }

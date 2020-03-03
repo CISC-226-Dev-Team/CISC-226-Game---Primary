@@ -13,6 +13,7 @@ TagManager:
   - Planet_Earth
   - Planet_0
   - Sun
+  - One_Way_Platforms
   layers:
   - Default
   - TransparentFX

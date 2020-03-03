@@ -62,9 +62,14 @@ public class Player_Movement_Controller : MonoBehaviour
         */
     }
 
-    /* Checks for ground by changing isGrounded to true whenever the terrain layer is collided with */
+    /* Checks for ground by changing isGrounded to true whenever terrain is collided with */
     void OnCollisionEnter2D(Collision2D collision){
+        // Terrain and hazards ground the player at any time
         if (collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "Hazards"){
+            isGrounded = true;
+        }
+        // One way platforms only ground when falling
+        else if (collision.gameObject.tag == "One_Way_Platforms"){
             if (rb.velocity.y <= 0f){
                 isGrounded = true;
             }
@@ -145,7 +150,7 @@ public class Player_Movement_Controller : MonoBehaviour
         // Press R to reset the level
         if (Input.GetKey(KeyCode.R)){
             // Unpause game, reload scene
-            Time.timeScale = 1;
+            Time.timeScale = 1f;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

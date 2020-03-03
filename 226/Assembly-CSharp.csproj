@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\HUD\Health_Bar_Scaler.cs" />
      <Compile Include="Assets\Scripts\HUD\Health_Number_Getter.cs" />
      <Compile Include="Assets\Scripts\HUD\HUD_Controller.cs" />
+     <Compile Include="Assets\Scripts\HUD\Prompt_Changer.cs" />
      <Compile Include="Assets\Scripts\HUD\Score_Bar_Scaler.cs" />
      <Compile Include="Assets\Scripts\HUD\Score_Number_Getter.cs" />
      <Compile Include="Assets\Scripts\Meta\Checkpoint.cs" />
