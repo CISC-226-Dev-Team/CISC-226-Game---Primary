@@ -79,9 +79,9 @@
 /reference:"/Applications/Unity/Hub/Editor/2018.4.15f1/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
 /reference:"/Applications/Unity/Hub/Editor/2018.4.15f1/Unity.app/Contents/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll"
 /reference:"/Applications/Unity/Hub/Editor/2018.4.15f1/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll"
-/reference:"/Users/josh/Desktop/Unity/CISC-226-Game---Primary/226/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll"
-/reference:"/Users/josh/Desktop/Unity/CISC-226-Game---Primary/226/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll"
-/reference:"/Users/josh/Desktop/Unity/CISC-226-Game---Primary/226/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll"
+/reference:"/Users/josh/Desktop/GIT/Game226/CISC-226-Game---Primary/226/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll"
+/reference:"/Users/josh/Desktop/GIT/Game226/CISC-226-Game---Primary/226/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll"
+/reference:"/Users/josh/Desktop/GIT/Game226/CISC-226-Game---Primary/226/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll"
 /reference:"/Applications/Unity/Hub/Editor/2018.4.15f1/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll"
 /reference:"/Applications/Unity/Hub/Editor/2018.4.15f1/Unity.app/Contents/NetStandard/compat/2.0.0/shims/netstandard/Microsoft.Win32.Primitives.dll"
 /reference:"/Applications/Unity/Hub/Editor/2018.4.15f1/Unity.app/Contents/NetStandard/compat/2.0.0/shims/netstandard/System.AppContext.dll"
@@ -298,7 +298,6 @@
 /define:UNITY_TEAM_LICENSE
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-"Assets/Scenes/Hidden_Foreground.cs"
 "Assets/Scripts/Camera/Camera_Controller.cs"
 "Assets/Scripts/Camera/CameraMove.cs"
 "Assets/Scripts/HUD/Health_Bar_Scaler.cs"
@@ -309,6 +308,7 @@
 "Assets/Scripts/Meta/Checkpoint.cs"
 "Assets/Scripts/Meta/Game_Master.cs"
 "Assets/Scripts/Meta/Main_Menu.cs"
+"Assets/Scripts/Meta/Scene_Transition.cs"
 "Assets/Scripts/Meta/Trigger_Change_Scene.cs"
 "Assets/Scripts/Objects/Object_Fall_Until_Collision.cs"
 "Assets/Scripts/Objects/Object_Repeat_Fall.cs"
@@ -322,3 +322,5 @@
 "Assets/Scripts/Raycast_Test.cs"
 "Assets/Scripts/Spaceship/Planet_Scanner.cs"
 "Assets/Scripts/Spaceship/Spaceship_Movement_Controller.cs"
+"Assets/Scripts/Terrain/Hidden_Foreground.cs"
+"Assets/Scripts/Terrain/One_Way_Platforms.cs"
