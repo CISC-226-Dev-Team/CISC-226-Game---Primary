@@ -1,6 +1,6 @@
 OSXUniversal
 PlayerPath?
-/Users/josh/Desktop/Unity/CISC-226-Game---Primary/226/Prototype_1.3.3.app
+/Users/josh/Desktop/Unity/CISC-226-Game---Primary/226/Prototype_1.3.4.app
 SceneListBegin?
 Assets/Scenes/Main_Menu.unity
 Assets/Scenes/Game_Intro.unity
@@ -185,3 +185,4 @@ df434544c9f7b33d1cc7e635b180d279 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 cbdaf6289eb255feedd0bee0a753faee Assembly-CSharp.dll:.Raycast_Test
 631dcfbab35cf7097dbbd44b501fa895 Assembly-CSharp.dll:.Hidden_Foreground
 0c97071dca81eebadf36f398a77ded1d Assembly-CSharp.dll:.Scene_Transition
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.One_Way_Platforms

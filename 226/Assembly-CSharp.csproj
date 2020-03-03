@@ -78,6 +78,7 @@
      <Compile Include="Assets\Scripts\Spaceship\Planet_Scanner.cs" />
      <Compile Include="Assets\Scripts\Spaceship\Spaceship_Movement_Controller.cs" />
      <Compile Include="Assets\Scripts\Terrain\Hidden_Foreground.cs" />
+     <Compile Include="Assets\Scripts\Terrain\One_Way_Platforms.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

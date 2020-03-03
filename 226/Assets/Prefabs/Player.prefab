@@ -116,7 +116,7 @@ EdgeCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895477538521042876}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -125,11 +125,10 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
+  - {x: -0.14, y: 0.28}
   - {x: -0.14, y: -0.31}
   - {x: 0.14, y: -0.31}
-  - {x: 0.14, y: -0.3}
-  - {x: -0.14, y: -0.3}
-  - {x: -0.14, y: -0.31}
+  - {x: 0.14, y: 0.28}
 --- !u!114 &1895477538521042867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,7 +314,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895477538521042876}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
