@@ -105,7 +105,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 16
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -142,7 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runForce: 150
-  jumpForce: 80
+  jumpVelocity: 80
+  jumpBufferLength: 0.2
   jumpSound: {fileID: 8300000, guid: b55b63d4fd215f34aafcb32786805d69, type: 3}
 --- !u!95 &1895477538521042868
 Animator:

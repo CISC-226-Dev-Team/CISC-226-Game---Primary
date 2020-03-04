@@ -20,6 +20,9 @@ public class Planet_Scanner : MonoBehaviour
         else if (collider.tag == "Planet_0"){
             scannerText.text = "Entering Orbit:\nPlanet Zer0\n\nPlanet Class:\nTerrestrial\n\nAtmosphere:\n70% Nitrogen\n25% Oxygen\n5% CO2\n\nClimate:\nStill pretty hot but not too hot\n\nWarning!\nTectonic activity detected";
         }
+        else if (collider.tag == "Planet_Underground_Level"){
+            scannerText.text = "Entering Orbit: underground_level";
+        }
         else if (collider.tag == "Sun"){
             scannerText.text = "Entering Orbit:\nSun\n\nStar Class:\nYellow Dwarf\n\nAtmosphere:\n75% Hydrogen\n25% Helium\n\nClimate:\nI mean it doesn't get much hotter than this\n\nWarning!\nWill expand into a red giant in like a billion years";
         }

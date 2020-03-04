@@ -10,17 +10,19 @@ public class Player_Movement_Controller : MonoBehaviour
     // Movement variables
     Rigidbody2D rb;
 
-    public float runForce = 80;
+    public float runForce;
     public static float maxHorizontalVelocity = 30f;
 
-    public float jumpForce = 40;
+    public float jumpVelocity;
     public static float maxVerticalVelocity = 90f;
+    public float jumpBufferLength;
+    float jumpBuffer = 0f;
 
     public static bool isGrounded = true;
 
     // Sound variables
     AudioSource sfx;
-    // The run sound just isnt sounding great so its all commented out for now
+    // The run sound just isnt sounding great so it's all commented out for now
     //public AudioClip runSound;
     public AudioClip jumpSound;
 
@@ -28,7 +30,7 @@ public class Player_Movement_Controller : MonoBehaviour
     void doHorizontalMovement(){
         /* * * RUNNING * * */
         // Apply appropriate directional runForce whenever the arrow keys are pressed.
-        if (Input.GetKey(KeyCode.LeftArrow)){
+        if (Input.GetKey(KeyCode.A)){
             rb.AddForce(transform.right * runForce * -1);
             // Play running sound if grounded
             /*
@@ -41,7 +43,7 @@ public class Player_Movement_Controller : MonoBehaviour
             }
             */
         }
-        else if (Input.GetKey(KeyCode.RightArrow)){
+        else if (Input.GetKey(KeyCode.D)){
             rb.AddForce(transform.right * runForce);
             // Play running sound if grounded
             /*
@@ -79,19 +81,25 @@ public class Player_Movement_Controller : MonoBehaviour
     /* Checks for jump button presses and applies force accordingly */
     void doVerticalMovement(){
         /* * * JUMPING * * */
-        // If the player is grounded, add an upwards jumpForce when they press Up
-        if (Input.GetKey(KeyCode.UpArrow) && isGrounded){
-            rb.velocity = new Vector2(rb.velocity.x,0f); // Reset vertical velocity before jump
-            rb.AddForce(transform.up * jumpForce,ForceMode2D.Impulse);
+        // If the player is grounded, add an upwards velocity when they press Up
+        // Remember their press for a small time, so that the player can press jump slightly before they touch the ground
+        jumpBuffer -= Time.deltaTime;
+        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)){
+            jumpBuffer = jumpBufferLength;
+        }
+        if ((jumpBuffer > 0) && isGrounded){
+            // Set the vertical velocity to jumpVelocity
+            rb.velocity = new Vector2(rb.velocity.x,jumpVelocity); 
             isGrounded = false;
+            jumpBuffer = 0;
             // Play sound effect
             sfx.clip = jumpSound;
             sfx.loop = false;
             sfx.Play();
         }
         // When the player lets go of up, they lose upwards velocity faster (Allows for short hops)
-        else if (!Input.GetKey(KeyCode.UpArrow) && !isGrounded && rb.velocity.y > 0){
-            rb.velocity = new Vector2(rb.velocity.x,rb.velocity.y*0.5f);
+        else if (!Input.GetKey(KeyCode.Space) && !Input.GetKey(KeyCode.W) && !isGrounded && rb.velocity.y > 0){
+            rb.velocity = new Vector2(rb.velocity.x,rb.velocity.y*0.7f);
         }
 
     }

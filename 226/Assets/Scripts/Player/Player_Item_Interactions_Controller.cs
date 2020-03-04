@@ -75,18 +75,18 @@ public class Player_Item_Interactions_Controller : MonoBehaviour
         // Whenever shoot button is pressed, check that:
         // The player has coins left
         // The player has not fired recently
-        if ( (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.X)) && Time.time > nextFireTime){
+        if ( (Input.GetKey(KeyCode.O) || Input.GetKey(KeyCode.P)) && Time.time > nextFireTime){
 
             // Reset fire time based on cooldown
             nextFireTime = Time.time + shootCooldown;
 
             // Left shoot button fires to the left (-1)
-            if (Input.GetKey(KeyCode.Z)){
+            if (Input.GetKey(KeyCode.O)){
                 var projectile = (GameObject)Instantiate(bullet,transform.position+new Vector3(-1.5f,0f,0f),transform.rotation);
                 projectile.GetComponent<Projectile_Move_Forward>().setDirection(-1);
             }
             // Right shoot button fires to the right (+1)
-            else if (Input.GetKey(KeyCode.X)){
+            else if (Input.GetKey(KeyCode.P)){
                 var projectile = (GameObject)Instantiate(bullet,transform.position+new Vector3(1.5f,0f,0f),transform.rotation);
                 projectile.GetComponent<Projectile_Move_Forward>().setDirection(1);
                 

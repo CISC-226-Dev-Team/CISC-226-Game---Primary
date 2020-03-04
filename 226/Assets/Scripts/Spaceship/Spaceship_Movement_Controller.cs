@@ -18,17 +18,17 @@ public class Spaceship_Movement_Controller : MonoBehaviour
     /* Called at FixedUpdate, handles the spaceship movement */ 
     void shipMovementHandler(){
         // Up and down keys apply forwards and backwards forces
-        if (Input.GetKey(KeyCode.UpArrow)){
+        if (Input.GetKey(KeyCode.W)){
             rb.AddRelativeForce(new Vector2(0,thrust));
         }
-        if (Input.GetKey(KeyCode.DownArrow)){
+        if (Input.GetKey(KeyCode.S)){
             rb.AddRelativeForce(new Vector2(0,thrust*-1));
         }
         // Left and right keys rotate the ship
-        if (Input.GetKey(KeyCode.LeftArrow)){
+        if (Input.GetKey(KeyCode.A)){
             transform.Rotate(Vector3.forward * turnSpeed);
         }
-        if (Input.GetKey(KeyCode.RightArrow)){
+        if (Input.GetKey(KeyCode.D)){
             transform.Rotate(Vector3.forward * turnSpeed * -1);
         }
     }

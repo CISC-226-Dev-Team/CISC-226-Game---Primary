@@ -15,7 +15,7 @@ public class One_Way_Platforms : MonoBehaviour
     void Update()
     {
         // When down is being held, the surface arc of the platforms becomes 0 (intangible)
-        if (Input.GetKey(KeyCode.DownArrow)){
+        if (Input.GetKey(KeyCode.S)){
             effector.surfaceArc = 0f;
         }
         // Once released, it's set back to 90 degrees (collider only active from above)

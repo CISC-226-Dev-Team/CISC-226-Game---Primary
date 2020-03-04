@@ -14,6 +14,8 @@ TagManager:
   - Planet_0
   - Sun
   - One_Way_Platforms
+  - Planet_Underground_Level
+  - Player_Bullet
   layers:
   - Default
   - TransparentFX
