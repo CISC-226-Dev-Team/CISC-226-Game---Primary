@@ -148,8 +148,7 @@ public class Player_Movement_Controller : MonoBehaviour
     {
         // ESC key exits the game into level select
         if (Input.GetKey(KeyCode.Escape)){
-            // Destroy the game master and reset the timeScale
-            Destroy(GameObject.Find("GameMaster"));
+            // Reset the timeScale
             Time.timeScale = 1f;
             Scene_Transition SC = GameObject.Find("SceneController").GetComponent<Scene_Transition>();
             SC.transition();

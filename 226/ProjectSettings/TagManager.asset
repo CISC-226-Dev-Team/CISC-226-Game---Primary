@@ -16,6 +16,7 @@ TagManager:
   - One_Way_Platforms
   - Planet_Underground_Level
   - Player_Bullet
+  - Spaceship
   layers:
   - Default
   - TransparentFX

@@ -64,14 +64,14 @@ public class Player_Animation_Controller : MonoBehaviour
 
     /* Play the damage animation so long as damage was taken recently */
     void damageAnimations(){
-        
+        // The 'o' face animation is no longer used, hence when the anim state changers are disabled now
         if (Player_Health_and_Damage_Controller.tookDamageRecently){
             spr.color = damageColor;
-            anim.SetBool("DmgAnimation",true);
+            //anim.SetBool("DmgAnimation",true);
         }
         else{
             spr.color = normalColor;
-            anim.SetBool("DmgAnimation",false);
+            //anim.SetBool("DmgAnimation",false);
         }
 
     }

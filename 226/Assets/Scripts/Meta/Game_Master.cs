@@ -12,6 +12,9 @@ public class Game_Master : MonoBehaviour
     public int respawnScore;
     public bool phaseTwo;
     public bool checkpointed;
+
+    // Positions are now saved in the space screen too!
+    public Vector2 shipLocation;
     // Any additional values that need to stay constant through scene reloads can be stored here
 
     void Awake(){

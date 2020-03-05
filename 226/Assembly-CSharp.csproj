@@ -55,6 +55,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Camera\Camera_Controller.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraMove.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Enemy_Follow_Player.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Robot_Animator.cs" />
      <Compile Include="Assets\Scripts\HUD\Health_Bar_Scaler.cs" />
      <Compile Include="Assets\Scripts\HUD\Health_Number_Getter.cs" />
      <Compile Include="Assets\Scripts\HUD\HUD_Controller.cs" />
@@ -65,6 +67,7 @@
      <Compile Include="Assets\Scripts\Meta\Game_Master.cs" />
      <Compile Include="Assets\Scripts\Meta\Main_Menu.cs" />
      <Compile Include="Assets\Scripts\Meta\Scene_Transition.cs" />
+     <Compile Include="Assets\Scripts\Meta\Space_Checkpoint.cs" />
      <Compile Include="Assets\Scripts\Meta\Trigger_Change_Scene.cs" />
      <Compile Include="Assets\Scripts\Objects\Object_Fall_Until_Collision.cs" />
      <Compile Include="Assets\Scripts\Objects\Object_Repeat_Fall.cs" />

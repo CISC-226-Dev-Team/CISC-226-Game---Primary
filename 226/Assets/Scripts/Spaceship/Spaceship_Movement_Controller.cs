@@ -15,6 +15,12 @@ public class Spaceship_Movement_Controller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    // At awake, place the ship at the last checkpoint position
+    void Awake(){
+        Game_Master gm = GameObject.Find("GameMaster").GetComponent<Game_Master>();
+        transform.position = gm.shipLocation;
+    }
+
     /* Called at FixedUpdate, handles the spaceship movement */ 
     void shipMovementHandler(){
         // Up and down keys apply forwards and backwards forces
