@@ -11,7 +11,7 @@ public class Enemy_Follow_Player : MonoBehaviour
     // Only hitbox needs to have the Hazards tag, enemy itself does not need a tag
 
     // Movement values
-    public float moveSpeed;
+    public float moveForce;
     Vector2 playerPosition;
     Rigidbody2D rb;
 
@@ -37,13 +37,13 @@ public class Enemy_Follow_Player : MonoBehaviour
             playerPosition = collider.gameObject.transform.position;
             // If the player is to the right, move right
             if (playerPosition.x > transform.position.x){
-                rb.AddForce(transform.right * moveSpeed);
+                rb.AddForce(transform.right * moveForce);
                 // Flip the sprite to always be facing the player
                 spr.flipX = false;
             }
             // If the player is to the left, move left
             else if (playerPosition.x < transform.position.x){
-                rb.AddForce(transform.right * moveSpeed * -1);
+                rb.AddForce(transform.right * moveForce * -1);
                 // Flip the sprite to always be facing the player
                 spr.flipX = true;
             }
