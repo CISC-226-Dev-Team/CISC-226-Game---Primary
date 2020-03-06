@@ -17,6 +17,8 @@ TagManager:
   - Planet_Underground_Level
   - Player_Bullet
   - Spaceship
+  - Main-Menu-Background
+  - Main-Menu-Screen
   layers:
   - Default
   - TransparentFX

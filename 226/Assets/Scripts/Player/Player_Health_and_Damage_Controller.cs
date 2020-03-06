@@ -88,6 +88,13 @@ public class Player_Health_and_Damage_Controller : MonoBehaviour
         }
     }
 
+    /* Whenever the player touches an object with the hazards tag, they take damage */
+    void OnCollisionEnter2D(Collision2D collision){
+        if (collision.gameObject.tag == "Hazards"){
+            takeDamage(5);
+        }
+    }
+
     /* Whenever the player is within a hazardous trigger space, they take damage */
     void OnTriggerStay2D(Collider2D collider){
         if (collider.CompareTag("Hazards")){

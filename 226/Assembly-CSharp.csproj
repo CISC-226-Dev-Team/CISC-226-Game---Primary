@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\Camera\Camera_Controller.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraMove.cs" />
      <Compile Include="Assets\Scripts\Enemies\Enemy_Follow_Player.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Enemy_Shoot_Projectiles.cs" />
      <Compile Include="Assets\Scripts\Enemies\Robot_Animator.cs" />
      <Compile Include="Assets\Scripts\HUD\Health_Bar_Scaler.cs" />
      <Compile Include="Assets\Scripts\HUD\Health_Number_Getter.cs" />

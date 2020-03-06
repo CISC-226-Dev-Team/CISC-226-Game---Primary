@@ -22,11 +22,9 @@ public class Projectile_Move_Forward : MonoBehaviour
         rb.velocity = new Vector2(projectileVelocity*dir,0);
     }
 
-    // Destroy the bullet if it impacts an object that isnt the player
+    // Destroy the bullet if it impacts an object
     void OnCollisionEnter2D(Collision2D collision){
-        if (collision.gameObject.tag != "Player"){
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 
     // Check if the object has expired every frame
