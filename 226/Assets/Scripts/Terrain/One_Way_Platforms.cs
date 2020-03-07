@@ -5,22 +5,18 @@ using UnityEngine;
 public class One_Way_Platforms : MonoBehaviour
 {
 
-    PlatformEffector2D effector;
-
-    void Start(){
-        effector = GetComponent<PlatformEffector2D>();
-    }
+    public Transform player;
 
     // When holding down, the player can fall through the one way platforms
     void Update()
     {
-        // When down is being held, the surface arc of the platforms becomes 0 (intangible)
+        // When down is being held, set IgnoreCollision between the player and the platforms to true
         if (Input.GetKey(KeyCode.S)){
-            effector.surfaceArc = 0f;
+            Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
-        // Once released, it's set back to 90 degrees (collider only active from above)
+        // Once released, it's set back to false
         else{
-            effector.surfaceArc = 90f;
+            Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>(), false);
         }
     }
 }

@@ -82,12 +82,12 @@ public class Player_Item_Interactions_Controller : MonoBehaviour
 
             // Left shoot button fires to the left (-1)
             if (Input.GetKey(KeyCode.O)){
-                var projectile = (GameObject)Instantiate(bullet,transform.position+new Vector3(-1.5f,0f,0f),transform.rotation);
+                var projectile = (GameObject)Instantiate(bullet,transform.position+new Vector3(-2f,0f,0f),transform.rotation);
                 projectile.GetComponent<Projectile_Move_Forward>().setDirection(-1);
             }
             // Right shoot button fires to the right (+1)
             else if (Input.GetKey(KeyCode.P)){
-                var projectile = (GameObject)Instantiate(bullet,transform.position+new Vector3(1.5f,0f,0f),transform.rotation);
+                var projectile = (GameObject)Instantiate(bullet,transform.position+new Vector3(2f,0f,0f),transform.rotation);
                 projectile.GetComponent<Projectile_Move_Forward>().setDirection(1);
                 
             }

@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\Meta\Trigger_Change_Scene.cs" />
      <Compile Include="Assets\Scripts\Objects\Object_Fall_Until_Collision.cs" />
      <Compile Include="Assets\Scripts\Objects\Object_Repeat_Fall.cs" />
+     <Compile Include="Assets\Scripts\Objects\Object_Rise_With_Timer.cs" />
      <Compile Include="Assets\Scripts\Objects\Object_Spinning.cs" />
      <Compile Include="Assets\Scripts\Objects\Projectile_Move_Forward.cs" />
      <Compile Include="Assets\Scripts\Objects\Teleporter.cs" />
@@ -83,6 +84,7 @@
      <Compile Include="Assets\Scripts\Spaceship\Planet_Scanner.cs" />
      <Compile Include="Assets\Scripts\Spaceship\Spaceship_Movement_Controller.cs" />
      <Compile Include="Assets\Scripts\Terrain\Hidden_Foreground.cs" />
+     <Compile Include="Assets\Scripts\Terrain\Moving_Platform.cs" />
      <Compile Include="Assets\Scripts\Terrain\One_Way_Platforms.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

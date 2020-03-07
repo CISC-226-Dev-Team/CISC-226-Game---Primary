@@ -13,7 +13,7 @@ public class Score_Bar_Scaler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Get current HP every frame, calculate it as a % of max HP, scale the bar accordingly
+        // Get current coins every frame, calculate it as a % of max coins, scale the bar accordingly
         score = Player_Item_Interactions_Controller.score;
         maxScore = Player_Item_Interactions_Controller.numCoins;
         transform.localScale = new Vector3(score/maxScore,1,0);
