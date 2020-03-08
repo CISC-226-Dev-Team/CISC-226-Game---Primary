@@ -19,6 +19,7 @@ TagManager:
   - Spaceship
   - Main-Menu-Background
   - Main-Menu-Screen
+  - Enemy_Bullet
   layers:
   - Default
   - TransparentFX

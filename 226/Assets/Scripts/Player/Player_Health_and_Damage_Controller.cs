@@ -90,7 +90,7 @@ public class Player_Health_and_Damage_Controller : MonoBehaviour
 
     /* Whenever the player touches an object with the hazards tag, they take damage */
     void OnCollisionEnter2D(Collision2D collision){
-        if (collision.gameObject.tag == "Hazards"){
+        if (collision.gameObject.tag == "Hazards" || collision.gameObject.tag == "Enemy_Bullet"){
             takeDamage(5);
         }
     }

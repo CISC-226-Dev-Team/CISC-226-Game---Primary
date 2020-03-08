@@ -24,10 +24,16 @@ public class Enemy_Follow_Player : MonoBehaviour
     public Color damageColor;
     float timeAtLastDamage = 0f;
     bool tookDamageRecently = false;
+    public GameObject deathAnim;
+
+    // Audio values
+    AudioSource sfx;
+    public AudioClip oofSound;
 
     void Start(){
         rb = GetComponent<Rigidbody2D>();
         spr = GetComponent<SpriteRenderer>();
+        sfx = GetComponent<AudioSource>();
     }
 
     // Follow the player
@@ -60,15 +66,24 @@ public class Enemy_Follow_Player : MonoBehaviour
             // Change color when shot
             timeAtLastDamage = Time.time;
             tookDamageRecently = true;
+
+            // Dies (Destroys self) if health reaches zero
+            if (healthPoints <= 0){
+                // Create a death animation object
+                // This object will include the death sound
+                var death = (GameObject)Instantiate(deathAnim,transform.position+new Vector3(0,1,0),transform.rotation);
+                // Destroy self
+                Destroy(gameObject);
+            }
+            else{
+                // If it survives, play oof sound
+                sfx.clip = oofSound;
+                sfx.Play();
+            }
         }
     }
 
     void Update(){
-
-        // Dies (Destroys self) when health reaches zero
-        if (healthPoints <= 0){
-            Destroy(gameObject);
-        }
 
         // Animate the color change when the enemy is shot
         if (Time.time - timeAtLastDamage > 0.2){

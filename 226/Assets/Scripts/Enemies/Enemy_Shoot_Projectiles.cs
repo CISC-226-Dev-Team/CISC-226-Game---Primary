@@ -19,8 +19,13 @@ public class Enemy_Shoot_Projectiles : MonoBehaviour
     // Sprite renderer is used for telling direction
     SpriteRenderer spr;
 
+    // For playing audio:
+    AudioSource sfx;
+    public AudioClip shootSound;
+
     void Start(){
         spr = GetComponent<SpriteRenderer>();
+        sfx = GetComponent<AudioSource>();
     }
 
     // Is only active when the player enters detection range
@@ -52,6 +57,10 @@ public class Enemy_Shoot_Projectiles : MonoBehaviour
                 var projectile = (GameObject)Instantiate(bullet,transform.position+new Vector3(distanceFromCentre*-1,0f,0f),transform.rotation);
                 projectile.GetComponent<Projectile_Move_Forward>().setDirection(-1);
             }
+
+            // Play sound clip
+            sfx.clip = shootSound;
+            sfx.Play();
         }
     }
 }

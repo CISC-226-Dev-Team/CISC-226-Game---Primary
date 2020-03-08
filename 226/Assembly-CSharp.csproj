@@ -70,11 +70,15 @@
      <Compile Include="Assets\Scripts\Meta\Scene_Transition.cs" />
      <Compile Include="Assets\Scripts\Meta\Space_Checkpoint.cs" />
      <Compile Include="Assets\Scripts\Meta\Trigger_Change_Scene.cs" />
+     <Compile Include="Assets\Scripts\Objects\Delete_Self.cs" />
      <Compile Include="Assets\Scripts\Objects\Object_Fall_Until_Collision.cs" />
      <Compile Include="Assets\Scripts\Objects\Object_Repeat_Fall.cs" />
      <Compile Include="Assets\Scripts\Objects\Object_Rise_With_Timer.cs" />
      <Compile Include="Assets\Scripts\Objects\Object_Spinning.cs" />
+     <Compile Include="Assets\Scripts\Objects\Pressure_Plate_Toggle_Active.cs" />
      <Compile Include="Assets\Scripts\Objects\Projectile_Move_Forward.cs" />
+     <Compile Include="Assets\Scripts\Objects\Switch_Toggle_Active.cs" />
+     <Compile Include="Assets\Scripts\Objects\Target_Switch.cs" />
      <Compile Include="Assets\Scripts\Objects\Teleporter.cs" />
      <Compile Include="Assets\Scripts\Player\Player_Animation_Controller.cs" />
      <Compile Include="Assets\Scripts\Player\Player_Health_and_Damage_Controller.cs" />
