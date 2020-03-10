@@ -25,8 +25,9 @@ public class Object_Rise_With_Timer : MonoBehaviour
         maxScore = Player_Item_Interactions_Controller.numCoins;        
         // When phase two begin, start the rise
         if (gm.phaseTwo){
-            // The water rises to the proportion of time remaining every frame
-            transform.localScale = Vector3.Lerp (transform.localScale, new Vector3(1,(maxScore-score)/maxScore,1), scaleSpeed * Time.deltaTime);
+            // The water rises up to its full height at a rate of scale speed
+            // Scale speed is multipled based on amount of time remaining: the lower the time left, the faster the scale speed
+            transform.localScale = Vector3.Lerp (transform.localScale, new Vector3(1,1,1), scaleSpeed * ((maxScore-score)/maxScore) * Time.deltaTime);
         }
     }
 }

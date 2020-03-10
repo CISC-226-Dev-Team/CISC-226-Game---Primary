@@ -43,6 +43,7 @@ public class Spaceship_Movement_Controller : MonoBehaviour
         // ESC returns to main menu
         if (Input.GetKey(KeyCode.Escape)){
             Scene_Transition SC = GameObject.Find("SceneController").GetComponent<Scene_Transition>();
+            SC.escScene = "Main_Menu";
             SC.transition();
         }
     }

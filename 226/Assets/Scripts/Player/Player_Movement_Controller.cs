@@ -150,7 +150,9 @@ public class Player_Movement_Controller : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape)){
             // Reset the timeScale
             Time.timeScale = 1f;
+            // Get the scene transition object and sets its scene to Space
             Scene_Transition SC = GameObject.Find("SceneController").GetComponent<Scene_Transition>();
+            SC.escScene = "Space";
             SC.transition();
         }
 
