@@ -124,8 +124,8 @@ MonoBehaviour:
   damageColor: {r: 1, g: 0.77254903, b: 0.77254903, a: 1}
   deathAnim: {fileID: 7339462093471190634, guid: 130c10d92d16b4c2ba67b1dc87b47632,
     type: 3}
+  deathAnimOffset: {x: 0, y: 1, z: 0}
   oofSound: {fileID: 8300000, guid: 1c58c7f7749b57040b9ca8ab09f7d514, type: 3}
-  deathSound: {fileID: 8300000, guid: e7cb68da88d8b274eb008f9a214589d8, type: 3}
 --- !u!61 &3545611592218196242
 BoxCollider2D:
   m_ObjectHideFlags: 0

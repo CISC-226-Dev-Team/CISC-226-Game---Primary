@@ -110,6 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff591e9738f14fff81a70744c387aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathAnim: {fileID: 7339462093471190634, guid: 130c10d92d16b4c2ba67b1dc87b47632,
+    type: 3}
+  deathAnimOffset: {x: 0, y: 0, z: 0}
 --- !u!50 &4029662879241459378
 Rigidbody2D:
   serializedVersion: 4

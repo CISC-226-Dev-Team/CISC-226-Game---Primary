@@ -12,57 +12,19 @@ public class Player_Movement_Controller : MonoBehaviour
 
     public float runForce;
     public static float maxHorizontalVelocity = 30f;
+    int holdingMove = 0;
 
     public float jumpVelocity;
     public static float maxVerticalVelocity = 90f;
     public float jumpBufferLength;
     float jumpBuffer = 0f;
+    bool holdingJump = false;
 
     public static bool isGrounded = true;
 
     // Sound variables
     AudioSource sfx;
-    // The run sound just isnt sounding great so it's all commented out for now
-    //public AudioClip runSound;
     public AudioClip jumpSound;
-
-    /* Checks for movement button presses and applies force accordingly */
-    void doHorizontalMovement(){
-        /* * * RUNNING * * */
-        // Apply appropriate directional runForce whenever the arrow keys are pressed.
-        if (Input.GetKey(KeyCode.A)){
-            rb.AddForce(transform.right * runForce * -1);
-            // Play running sound if grounded
-            /*
-            if (isGrounded){
-                if (!sfx.loop){
-                    sfx.clip = runSound;
-                    sfx.Play();
-                }
-                sfx.loop = true;
-            }
-            */
-        }
-        else if (Input.GetKey(KeyCode.D)){
-            rb.AddForce(transform.right * runForce);
-            // Play running sound if grounded
-            /*
-            if (isGrounded){
-                if (!sfx.loop){
-                    sfx.clip = runSound;
-                    sfx.Play();
-                }
-                sfx.loop = true;
-            }
-            */
-        }
-        /*
-        else{
-            // Disable looping run sound if not running
-            sfx.loop = false;
-        }
-        */
-    }
 
     /* Checks for ground by changing isGrounded to true whenever terrain is collided with */
     void OnCollisionEnter2D(Collision2D collision){
@@ -78,15 +40,10 @@ public class Player_Movement_Controller : MonoBehaviour
         }
     }
 
-    /* Checks for jump button presses and applies force accordingly */
+    /* Applies vertical (jump) physics */
     void doVerticalMovement(){
         /* * * JUMPING * * */
-        // If the player is grounded, add an upwards velocity when they press Up
-        // Remember their press for a small time, so that the player can press jump slightly before they touch the ground
-        jumpBuffer -= Time.deltaTime;
-        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)){
-            jumpBuffer = jumpBufferLength;
-        }
+        // If the player is grounded, add an upwards velocity when they jump
         if ((jumpBuffer > 0) && isGrounded){
             // Set the vertical velocity to jumpVelocity
             rb.velocity = new Vector2(rb.velocity.x,jumpVelocity); 
@@ -98,7 +55,7 @@ public class Player_Movement_Controller : MonoBehaviour
             sfx.Play();
         }
         // When the player lets go of up, they lose upwards velocity faster (Allows for short hops)
-        else if (!Input.GetKey(KeyCode.Space) && !Input.GetKey(KeyCode.W) && !isGrounded && rb.velocity.y > 0){
+        else if (!holdingJump && !isGrounded && rb.velocity.y > 0){
             rb.velocity = new Vector2(rb.velocity.x,rb.velocity.y*0.7f);
         }
 
@@ -144,8 +101,36 @@ public class Player_Movement_Controller : MonoBehaviour
     }
 
     // Update is called once per frame
+    // Keyboard inputs are collected in update, and executed in fixed update
     void Update()
     {
+
+        // W and Space jump
+        // Remember their press for a small time, so that the player can press jump slightly before they touch the ground
+        jumpBuffer -= Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)){
+            jumpBuffer = jumpBufferLength;
+        }
+
+        // Holding the jump button allows you to jump higher
+        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)){
+            holdingJump = true;
+        }
+        else{
+            holdingJump = false;
+        }
+
+        // A and D to move left and right
+        if (Input.GetKey(KeyCode.A)){
+            holdingMove = -1;
+        }
+        else if (Input.GetKey(KeyCode.D)){
+            holdingMove = 1;
+        }
+        else{
+            holdingMove = 0;
+        }
+
         // ESC key exits the game into level select
         if (Input.GetKey(KeyCode.Escape)){
             // Reset the timeScale
@@ -166,9 +151,9 @@ public class Player_Movement_Controller : MonoBehaviour
 
     /* FixedUpdate: Update all physics/movement functions */
     private void FixedUpdate(){
-        doHorizontalMovement();
-        doVerticalMovement();
-        limitVelocity();
+        rb.AddForce(transform.right * runForce * holdingMove); // Apply run force
+        doVerticalMovement(); // Apply jump physics
+        limitVelocity(); // Afterwars, limit maximum velocity
     }
 }
 

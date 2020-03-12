@@ -8,26 +8,31 @@ public class Object_Rise_With_Timer : MonoBehaviour
 
     // Score related variables
     float score;
-    float maxScore;
+    bool coinsChecked;
+    float timer;
 
-    // Other values
     Game_Master gm;
-    public float scaleSpeed;
+
+    Vector3 start = new Vector3(1,0,1);
+    Vector3 end = new Vector3(1,1,1);
 
     void Start(){
         gm = GameObject.Find("GameMaster").GetComponent<Game_Master>();
+        coinsChecked = false;
+        timer = 0f;
     }
 
     void Update()
     {
-        // Count current coins every frame
-        score = Player_Item_Interactions_Controller.score;
-        maxScore = Player_Item_Interactions_Controller.numCoins;        
-        // When phase two begin, start the rise
         if (gm.phaseTwo){
-            // The water rises up to its full height at a rate of scale speed
-            // Scale speed is multipled based on amount of time remaining: the lower the time left, the faster the scale speed
-            transform.localScale = Vector3.Lerp (transform.localScale, new Vector3(1,1,1), scaleSpeed * ((maxScore-score)/maxScore) * Time.deltaTime);
+            // Upon phase two beginning, check number of coins collected
+            if (!coinsChecked){
+                score = Player_Item_Interactions_Controller.score;
+                coinsChecked = true;
+            }
+            // The water will smoothly rise from 0% to 100% over the course of *score* seconds
+            timer += Time.deltaTime/score;
+            transform.localScale = Vector3.Lerp(start, end, timer);
         }
     }
 }

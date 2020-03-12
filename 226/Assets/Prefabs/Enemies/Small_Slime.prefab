@@ -180,8 +180,9 @@ MonoBehaviour:
   healthPoints: 2
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   damageColor: {r: 0.990566, g: 0.6868548, b: 0.6868548, a: 1}
-  deathAnim: {fileID: 7339462093471190634, guid: 130c10d92d16b4c2ba67b1dc87b47632,
+  deathAnim: {fileID: 666253109283525430, guid: 5080d2c1411e94e6381a4b144bc33413,
     type: 3}
+  deathAnimOffset: {x: 0, y: 1, z: 0}
   oofSound: {fileID: 8300000, guid: 5d0d26e3cc3617f448fa1f9be03bc270, type: 3}
 --- !u!61 &6879541983436647318
 BoxCollider2D:

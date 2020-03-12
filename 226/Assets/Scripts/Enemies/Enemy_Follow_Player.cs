@@ -25,6 +25,7 @@ public class Enemy_Follow_Player : MonoBehaviour
     float timeAtLastDamage = 0f;
     bool tookDamageRecently = false;
     public GameObject deathAnim;
+    public Vector3 deathAnimOffset;
 
     // Audio values
     AudioSource sfx;
@@ -71,7 +72,7 @@ public class Enemy_Follow_Player : MonoBehaviour
             if (healthPoints <= 0){
                 // Create a death animation object
                 // This object will include the death sound
-                var death = (GameObject)Instantiate(deathAnim,transform.position+new Vector3(0,1,0),transform.rotation);
+                var death = (GameObject)Instantiate(deathAnim,transform.position+deathAnimOffset,transform.rotation);
                 // Destroy self
                 Destroy(gameObject);
             }

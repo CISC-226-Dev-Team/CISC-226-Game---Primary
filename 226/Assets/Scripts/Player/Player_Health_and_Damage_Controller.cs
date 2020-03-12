@@ -10,6 +10,7 @@ public class Player_Health_and_Damage_Controller : MonoBehaviour
     public static int currentHealthPoints;
     public float invulnerabilityPeriod;
     public static bool isAlive;
+    public bool InfiniteHealth;
 
     // Keeping track of damage for animation purposes
     float timeAtLastDamage = 0f;
@@ -64,12 +65,16 @@ public class Player_Health_and_Damage_Controller : MonoBehaviour
             currentHealthPoints -= dmg;
             if (currentHealthPoints <= 0){
                 currentHealthPoints = 0;
-                // Play death sound effect
-                sfx.clip = deathSound;
-                sfx.loop = false;
-                sfx.Play();
-                // die
-                death();
+                
+                if (!InfiniteHealth){
+                   // Play death sound effect
+                   sfx.clip = deathSound;
+                   sfx.loop = false;
+                   sfx.Play();
+                   // die
+                   death(); 
+                }
+                
             }
             else{
                 // Play the damage sound effect if the player survives

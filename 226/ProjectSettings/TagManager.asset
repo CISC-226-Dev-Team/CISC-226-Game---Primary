@@ -20,6 +20,7 @@ TagManager:
   - Main-Menu-Background
   - Main-Menu-Screen
   - Enemy_Bullet
+  - Intangible
   layers:
   - Default
   - TransparentFX

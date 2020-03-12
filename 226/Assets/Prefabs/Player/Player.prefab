@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1995383943
   m_SortingLayer: -2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1110b0fed4dad48a380c09df795e743f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invulnerabilityPeriod: 1
+  InfiniteHealth: 0
   ouchSound: {fileID: 8300000, guid: 09c4acdb130de4845b8eb54f58fd7d00, type: 3}
   deathSound: {fileID: 8300000, guid: 61f97b39420bf4e4a88b37cee9fb3339, type: 3}
 --- !u!114 &1895477538521042866
@@ -205,6 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f60dac8d39743e6bd2a75ca7ed7250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InfiniteTime: 0
   bullet: {fileID: 1419379897352428107, guid: c267c5c6b344c4eec9e79fe5902952cc, type: 3}
   shootCooldown: 0.5
   timerInterval: 1

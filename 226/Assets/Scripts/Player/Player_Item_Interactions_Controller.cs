@@ -10,6 +10,7 @@ public class Player_Item_Interactions_Controller : MonoBehaviour
     // Scoring variables
     public static int score;
     public static int numCoins;
+    public bool InfiniteTime;
 
     // Shooting variables
     public GameObject bullet;
@@ -116,10 +117,12 @@ public class Player_Item_Interactions_Controller : MonoBehaviour
            if (score <= 0){
                // Make sure to only die once
                if (Player_Health_and_Damage_Controller.isAlive){
-                   sfx.clip = deathSound;
-                   sfx.loop = false;
-                   sfx.Play();
-                   Player_Health_and_Damage_Controller.death();
+                   if (!InfiniteTime){
+                       sfx.clip = deathSound;
+                       sfx.loop = false;
+                       sfx.Play();
+                       Player_Health_and_Damage_Controller.death();
+                   }
                }
            }
 

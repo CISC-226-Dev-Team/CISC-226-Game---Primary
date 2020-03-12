@@ -123,9 +123,10 @@ MonoBehaviour:
   healthPoints: 8
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   damageColor: {r: 0.99215686, g: 0.6901961, b: 0.6901961, a: 1}
-  deathAnim: {fileID: 1387989452309547613, guid: d20d164c47349482883ac87702c72549,
+  deathAnim: {fileID: 666253109283525430, guid: a62b81a42f8454437b7ae2ccc3a71ba4,
     type: 3}
-  oofSound: {fileID: 8300000, guid: ce44f5886b8417f4d867038263fa3eed, type: 3}
+  deathAnimOffset: {x: 0, y: 1, z: 0}
+  oofSound: {fileID: 8300000, guid: 70414c508cbe9274e9f53070ff311352, type: 3}
 --- !u!61 &9103422490754981881
 BoxCollider2D:
   m_ObjectHideFlags: 0
