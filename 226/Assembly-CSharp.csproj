@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\HUD\Score_Number_Getter.cs" />
      <Compile Include="Assets\Scripts\Meta\Checkpoint.cs" />
      <Compile Include="Assets\Scripts\Meta\Game_Master.cs" />
+     <Compile Include="Assets\Scripts\Meta\Invulnerability_Zone.cs" />
      <Compile Include="Assets\Scripts\Meta\Main_Menu.cs" />
      <Compile Include="Assets\Scripts\Meta\Scene_Transition.cs" />
      <Compile Include="Assets\Scripts\Meta\Space_Checkpoint.cs" />

@@ -18,11 +18,11 @@ public class One_Way_Platforms : MonoBehaviour
     void Update()
     {
         // When down is being held, set IgnoreCollision between the player and the platforms to true
-        if (Input.GetKey(KeyCode.S)){
+        if (Input.GetKeyDown(KeyCode.S)){
             Physics2D.IgnoreCollision(playerCollider, self, true);
         }
         // Once released, it's set back to false
-        else{
+        if (Input.GetKeyUp(KeyCode.S)){
             Physics2D.IgnoreCollision(playerCollider, self, false);
         }
     }

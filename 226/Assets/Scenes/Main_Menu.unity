@@ -398,6 +398,10 @@ MonoBehaviour:
 
     -Black Vortex-
 
+    -Oppressive Gloom-
+
+    -Burnt Spirit-
+
 
     Sirius Beat
 
@@ -1251,7 +1255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ansimuz - Sunnyland & GothicVania
+  m_text: 'Ansimuz - Various Tilesets & Sprites
 
     Bayat Games- Platform Game Assets
 

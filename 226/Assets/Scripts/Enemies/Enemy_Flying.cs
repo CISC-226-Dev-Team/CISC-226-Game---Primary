@@ -15,6 +15,8 @@ public class Enemy_Flying : MonoBehaviour
 
     // Movement values
     public float moveForce;
+    int directionX;
+    int directionY;
     Vector2 playerPosition;
     Rigidbody2D rb;
 
@@ -34,10 +36,16 @@ public class Enemy_Flying : MonoBehaviour
     AudioSource sfx;
     public AudioClip oofSound;
 
+    // Player object
+    Transform player;
+
     void Start(){
         rb = GetComponent<Rigidbody2D>();
         spr = GetComponent<SpriteRenderer>();
         sfx = GetComponent<AudioSource>();
+        directionX = 0;
+        directionY = 0;
+        player = GameObject.Find("Player").GetComponent<Transform>();
     }
 
     // Follow the player
@@ -46,25 +54,33 @@ public class Enemy_Flying : MonoBehaviour
         if (collider.CompareTag("Player")){
             playerPosition = collider.gameObject.transform.position;
             // If the player is to the right, move right
-            if (playerPosition.x > transform.position.x){
-                rb.AddForce(transform.right * moveForce);
+            if (player.position.x > transform.position.x){
+                directionX = 1;
                 // Flip the sprite to always be facing the player
                 spr.flipX = false;
             }
             // If the player is to the left, move left
-            else if (playerPosition.x < transform.position.x){
-                rb.AddForce(transform.right * moveForce * -1);
+            else {
+                directionX = -1;
                 // Flip the sprite to always be facing the player
                 spr.flipX = true;
             }
             // If the player is up, move up
-            if (playerPosition.y > transform.position.y){
-                rb.AddForce(transform.up * moveForce);
+            if (player.position.y > transform.position.y){
+                directionY = 1;
             }
             // If the player is down, move down
-            else if (playerPosition.y < transform.position.y){
-                rb.AddForce(transform.up * moveForce * -1);
+            else {
+                directionY = -1;
             }
+        }
+    }
+
+    // Stop moving when the player leaves trigger range
+    void OnTriggerExit2D(Collider2D collider){
+        if (collider.CompareTag("Player")){
+            directionX = 0;
+            directionY = 0;
         }
     }
 
@@ -92,6 +108,16 @@ public class Enemy_Flying : MonoBehaviour
                 sfx.clip = oofSound;
                 sfx.Play();
             }
+        }
+    }
+
+    // Do physics calculations at fixed update
+    void FixedUpdate(){
+        if (directionX != 0){
+            rb.AddForce(transform.right * moveForce * directionX);
+        }
+        if (directionY != 0){
+            rb.AddForce(transform.up * moveForce * directionY);
         }
     }
 

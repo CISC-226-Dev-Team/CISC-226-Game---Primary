@@ -13,6 +13,10 @@ public class Game_Master : MonoBehaviour
     public bool phaseTwo;
     public bool checkpointed;
 
+    // Phase grid objects
+    public GameObject phase_one;
+    public GameObject phase_two;
+
     // Positions are now saved in the space screen too!
     public Vector2 shipLocation;
     // Any additional values that need to stay constant through scene reloads can be stored here
@@ -27,5 +31,24 @@ public class Game_Master : MonoBehaviour
         else{
             Destroy(gameObject);
         }
+    }
+
+    void Start(){
+        // Get the phase grid objects and activate/deactivate as needed
+        phase_one = GameObject.FindWithTag("Grid_Phase_One");
+        phase_two = GameObject.FindWithTag("Grid_Phase_Two");
+
+        if (phase_one != null){
+            if (checkpointed){
+                // De-activate phase one
+                phase_one.SetActive(false);
+                // Activate phase-two
+                phase_two.SetActive(true);
+            }
+            else{
+                phase_two.SetActive(false);
+            }
+        }
+        
     }
 }

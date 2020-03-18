@@ -21,6 +21,9 @@ TagManager:
   - Main-Menu-Screen
   - Enemy_Bullet
   - Intangible
+  - Grid_Phase_One
+  - Grid_Phase_Two
+  - Planet_Ghost_Cavern
   layers:
   - Default
   - TransparentFX

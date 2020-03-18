@@ -113,8 +113,8 @@ Rigidbody2D:
   m_GravityScale: 12
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 0
-  m_CollisionDetection: 1
+  m_SleepingMode: 2
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!212 &6879541983436647402
 SpriteRenderer:

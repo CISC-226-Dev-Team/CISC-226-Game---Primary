@@ -12,6 +12,7 @@ public class Enemy_Follow_Player : MonoBehaviour
 
     // Movement values
     public float moveForce;
+    int direction;
     Vector2 playerPosition;
     Rigidbody2D rb;
 
@@ -31,29 +32,41 @@ public class Enemy_Follow_Player : MonoBehaviour
     AudioSource sfx;
     public AudioClip oofSound;
 
+    // Player object
+    Transform player;
+
     void Start(){
         rb = GetComponent<Rigidbody2D>();
         spr = GetComponent<SpriteRenderer>();
         sfx = GetComponent<AudioSource>();
+        direction = 0;
+        player = GameObject.Find("Player").GetComponent<Transform>();
     }
 
     // Follow the player
     void OnTriggerStay2D(Collider2D collider){
         // When the player is in trigger range, move towards their position
         if (collider.CompareTag("Player")){
-            playerPosition = collider.gameObject.transform.position;
+            //playerPosition = collider.gameObject.transform.position;
             // If the player is to the right, move right
-            if (playerPosition.x > transform.position.x){
-                rb.AddForce(transform.right * moveForce);
+            if (player.position.x > transform.position.x){
+                direction = 1;
                 // Flip the sprite to always be facing the player
                 spr.flipX = false;
             }
             // If the player is to the left, move left
-            else if (playerPosition.x < transform.position.x){
-                rb.AddForce(transform.right * moveForce * -1);
+            else{
+                direction = -1;
                 // Flip the sprite to always be facing the player
                 spr.flipX = true;
             }
+        }
+    }
+
+    // Stop moving when the player leaves trigger range
+    void OnTriggerExit2D(Collider2D collider){
+        if (collider.CompareTag("Player")){
+            direction = 0;
         }
     }
 
@@ -84,8 +97,14 @@ public class Enemy_Follow_Player : MonoBehaviour
         }
     }
 
-    void Update(){
+    // Do physics calculations at fixed update
+    void FixedUpdate(){
+        if (direction != 0){
+            rb.AddForce(transform.right * moveForce * direction);
+        }
+    }
 
+    void Update(){
         // Animate the color change when the enemy is shot
         if (Time.time - timeAtLastDamage > 0.2){
             tookDamageRecently = false;

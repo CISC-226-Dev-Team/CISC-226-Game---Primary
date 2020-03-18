@@ -28,15 +28,8 @@ public class Player_Movement_Controller : MonoBehaviour
 
     /* Checks for ground by changing isGrounded to true whenever terrain is collided with */
     void OnCollisionEnter2D(Collision2D collision){
-        // Terrain and hazards ground the player at any time
-        if (collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "Hazards"){
+        if (collision.gameObject.tag == "Terrain" || collision.gameObject.tag == "Hazards" || collision.gameObject.tag == "One_Way_Platforms"){
             isGrounded = true;
-        }
-        // One way platforms only ground when falling
-        else if (collision.gameObject.tag == "One_Way_Platforms"){
-            if (rb.velocity.y <= 0f){
-                isGrounded = true;
-            }
         }
     }
 
